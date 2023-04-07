@@ -205,6 +205,22 @@
         app:layout_constraintVertical_bias="0.293" />
 
     <TextView
+        android:id="@+id/tekst"
+        android:layout_width="417dp"
+        android:layout_height="45dp"
+        android:text="BRAK ZAKUPÓW"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_orange_light"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.833"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.437" />
+
+    <TextView
         android:id="@+id/wedliny"
         android:layout_width="417dp"
         android:layout_height="45dp"

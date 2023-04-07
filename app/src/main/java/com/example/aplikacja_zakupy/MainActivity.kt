@@ -30,31 +30,39 @@ class MainActivity : AppCompatActivity() {
         val bagietka=findViewById<CheckBox>(R.id.bagietka)
         val kajzerka=findViewById<CheckBox>(R.id.kajzerka)
 
-        val wedliny=findViewById<TextView>(R.id.)
+        val wedliny=findViewById<TextView>(R.id.wedliny)
         val szynka=findViewById<CheckBox>(R.id.szynka)
         val boczek=findViewById<CheckBox>(R.id.boczek)
         val poledwica=findViewById<CheckBox>(R.id.poledwica)
         val salami=findViewById<CheckBox>(R.id.salami)
 
+        val tekst=findViewById<TextView>(R.id.tekst)
+
 
         wybor.setOnClickListener {
+            warzywa.isVisible=true
             marchew.isVisible=true
             ziemniaki.isVisible=true
             cebula.isVisible=true
             ogorek.isVisible=true
 
+            pieczywo.isVisible=true
             chleb_psz.isVisible=true
             chleb_zyt.isVisible=true
             bagietka.isVisible=true
             kajzerka.isVisible=true
 
+            wedliny.isVisible=true
             szynka.isVisible=true
             boczek.isVisible=true
             poledwica.isVisible=true
             salami.isVisible=true
+
+            tekst.isInvisible=true
         }
 
         lista.setOnClickListener {
+            var a=3
             //WARZYWA
             var w=4
             if (marchew.isChecked!=true)
@@ -80,6 +88,7 @@ class MainActivity : AppCompatActivity() {
             if (w==0)
             {
                 warzywa.isInvisible=true
+                a-=1
             }
 
             var p=4
@@ -107,6 +116,7 @@ class MainActivity : AppCompatActivity() {
             if (p==0)
             {
                 pieczywo.isInvisible=true
+                a-=1
             }
             //SZYNKA
             var m=4
@@ -133,6 +143,11 @@ class MainActivity : AppCompatActivity() {
             if (m==0)
             {
                 wedliny.isInvisible=true
+                a-=1
+            }
+            if (a==0)
+            {
+                tekst.isVisible=true
             }
 
         }
