@@ -3,6 +3,8 @@ package com.example.aplikacja_zakupy
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.CheckBox
+import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
@@ -12,155 +14,129 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var guzik_lista=findViewById<Button>(R.id.lista)
-        var guzik_wybor=findViewById<Button>(R.id.wybor)
+        val wybor=findViewById<Button>(R.id.wybor)
+        val lista=findViewById<Button>(R.id.lista)
+        val radio=findViewById<RadioGroup>(R.id.wybor2)
 
-        var warzywo_guzik=findViewById<Button>(R.id.warzywa)
+        val warzywa=findViewById<TextView>(R.id.warzywa)
+        val marchew=findViewById<CheckBox>(R.id.marchew)
+        val ziemniaki=findViewById<CheckBox>(R.id.ziemniaki)
+        val cebula=findViewById<CheckBox>(R.id.cebula)
+        val ogorek=findViewById<CheckBox>(R.id.ogorek)
 
-        var marchew=findViewById<TextView>(R.id.Marchew)
-        var dodaj_marchew=findViewById<Button>(R.id.dodaj_marchew)
-        var odejmij_marchew=findViewById<Button>(R.id.odejmij_marchew)
-        var mar=0
+        val pieczywo=findViewById<TextView>(R.id.pieczywo)
+        val chleb_psz=findViewById<CheckBox>(R.id.chleb_psz)
+        val chleb_zyt=findViewById<CheckBox>(R.id.chleb_zyt)
+        val bagietka=findViewById<CheckBox>(R.id.bagietka)
+        val kajzerka=findViewById<CheckBox>(R.id.kajzerka)
 
-        var ziemniak=findViewById<TextView>(R.id.ziemniak)
-        var dodaj_ziemniki=findViewById<Button>(R.id.dodaj_ziemniaki)
-        var odejmij_ziemniki=findViewById<Button>(R.id.odejmij_ziemniaki)
-        var zie=0
+        val wedliny=findViewById<TextView>(R.id.)
+        val szynka=findViewById<CheckBox>(R.id.szynka)
+        val boczek=findViewById<CheckBox>(R.id.boczek)
+        val poledwica=findViewById<CheckBox>(R.id.poledwica)
+        val salami=findViewById<CheckBox>(R.id.salami)
 
-        var cebula=findViewById<TextView>(R.id.cebula)
-        var dodaj_cebule=findViewById<Button>(R.id.dodaj_cebule)
-        var odejmij_cebule=findViewById<Button>(R.id.odejmij_cebule)
-        var ceb=0
 
-        var pieczywo_guzik=findViewById<Button>(R.id.pieczywo)
-        var wedlina_guzik=findViewById<Button>(R.id.wedlina)
-        var powrot=findViewById<Button>(R.id.powrot)
-
-        powrot.setOnClickListener {
-            guzik_wybor.isInvisible=false
-            guzik_lista.isVisible=false
-            warzywo_guzik.isVisible=true
-            pieczywo_guzik.isVisible=true
-            wedlina_guzik.isVisible=true
-            powrot.isInvisible=true
-
-            marchew.isVisible=false
-            dodaj_marchew.isVisible=false
-            odejmij_marchew.isVisible=false
-
-            ziemniak.isVisible=false
-            dodaj_ziemniki.isVisible=false
-            odejmij_ziemniki.isVisible=false
-
-            cebula.isVisible=false
-            dodaj_cebule.isVisible=false
-            odejmij_cebule.isVisible=false
-        }
-
-        dodaj_marchew.setOnClickListener {
-            mar=1
-            dodaj_marchew.isVisible=false
-            odejmij_marchew.isVisible=true
-        }
-        odejmij_marchew.setOnClickListener {
-            mar=0
-            odejmij_marchew.isInvisible=true
-            dodaj_marchew.isVisible=true
-        }
-
-        dodaj_ziemniki.setOnClickListener {
-            zie=1
-            dodaj_ziemniki.isVisible=false
-            odejmij_ziemniki.isVisible=true
-        }
-        odejmij_ziemniki.setOnClickListener {
-            zie=0
-            dodaj_ziemniki.isVisible=true
-            odejmij_ziemniki.isVisible=false
-        }
-
-        dodaj_cebule.setOnClickListener {
-            ceb=1
-            dodaj_cebule.isVisible=false
-            odejmij_cebule.isVisible=true
-        }
-        odejmij_cebule.setOnClickListener {
-            ceb=0
-            dodaj_cebule.isVisible=true
-            odejmij_cebule.isVisible=false
-        }
-
-        warzywo_guzik.setOnClickListener{
-            guzik_lista.isInvisible=true
-            guzik_wybor.isInvisible=true
-            warzywo_guzik.isInvisible=true
-            pieczywo_guzik.isInvisible=true
-            wedlina_guzik.isInvisible=true
-            powrot.isVisible=true
-
+        wybor.setOnClickListener {
             marchew.isVisible=true
-            if (mar==0)
-            {
-                dodaj_marchew.isVisible=true
-                odejmij_marchew.isInvisible=true
-            }
-            else
-            {
-                dodaj_marchew.isInvisible=true
-                odejmij_marchew.isVisible=true
-            }
-
-            ziemniak.isVisible=true
-            if (zie==0)
-            {
-                dodaj_ziemniki.isVisible=true
-                odejmij_ziemniki.isVisible=false
-            }
-            else
-            {
-                dodaj_ziemniki.isVisible=false
-                odejmij_ziemniki.isVisible=true
-            }
-
+            ziemniaki.isVisible=true
             cebula.isVisible=true
-            if(ceb==0)
+            ogorek.isVisible=true
+
+            chleb_psz.isVisible=true
+            chleb_zyt.isVisible=true
+            bagietka.isVisible=true
+            kajzerka.isVisible=true
+
+            szynka.isVisible=true
+            boczek.isVisible=true
+            poledwica.isVisible=true
+            salami.isVisible=true
+        }
+
+        lista.setOnClickListener {
+            //WARZYWA
+            var w=4
+            if (marchew.isChecked!=true)
             {
-                dodaj_cebule.isVisible=true
-                odejmij_cebule.isVisible=false
+                marchew.isInvisible=true
+                w-=1
             }
-            else
+            if (ziemniaki.isChecked!=true)
             {
-                dodaj_cebule.isVisible=false
-                odejmij_cebule.isVisible=true
+                ziemniaki.isInvisible=true
+                w-=1
             }
+            if (cebula.isChecked!=true)
+            {
+                cebula.isInvisible=true
+                w-=1
+            }
+            if (ogorek.isChecked!=true)
+            {
+                ogorek.isInvisible=true
+                w-=1
+            }
+            if (w==0)
+            {
+                warzywa.isInvisible=true
+            }
+
+            var p=4
+            //PIECZYWO
+            if (chleb_psz.isChecked!=true)
+            {
+                chleb_psz.isInvisible=true
+                p-=1
+            }
+            if (chleb_zyt.isChecked!=true)
+            {
+                chleb_zyt.isInvisible=true
+                p-=1
+            }
+            if (bagietka.isChecked!=true)
+            {
+                bagietka.isInvisible=true
+                p-=1
+            }
+            if (kajzerka.isChecked!=true)
+            {
+                kajzerka.isInvisible=true
+                p-=1
+            }
+            if (p==0)
+            {
+                pieczywo.isInvisible=true
+            }
+            //SZYNKA
+            var m=4
+            if (szynka.isChecked!=true)
+            {
+                szynka.isInvisible=true
+                m-=1
+            }
+            if (boczek.isChecked!=true)
+            {
+                boczek.isInvisible=true
+                m-=1
+            }
+            if (poledwica.isChecked!=true)
+            {
+                poledwica.isInvisible=true
+                m-=1
+            }
+            if (salami.isChecked!=true)
+            {
+                salami.isInvisible=true
+                m-=1
+            }
+            if (m==0)
+            {
+                wedliny.isInvisible=true
+            }
+
         }
 
-        pieczywo_guzik.setOnClickListener {
-            guzik_lista.isInvisible=true
-            guzik_wybor.isInvisible=true
-            warzywo_guzik.isInvisible=true
-            pieczywo_guzik.isInvisible=true
-            wedlina_guzik.isInvisible=true
-            powrot.isVisible=true
-        }
 
-        guzik_lista.setOnClickListener{
-            guzik_lista.isInvisible=true
-            guzik_wybor.isVisible=true
-            warzywo_guzik.isVisible=true
-            pieczywo_guzik.isVisible=true
-            wedlina_guzik.isVisible=true
-            powrot.isInvisible=true
-        }
-
-
-        guzik_wybor.setOnClickListener{
-            guzik_wybor.isInvisible=true
-            guzik_lista.isVisible=true
-            warzywo_guzik.isVisible=false
-            pieczywo_guzik.isVisible=false
-            wedlina_guzik.isVisible=false
-            powrot.isInvisible=true
-        }
     }
 }
